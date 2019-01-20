@@ -10,4 +10,8 @@
     <string name="error_field_required">Поля ввода логина и пароля пусты</string>
     <string name="error_field_required_log">Поле ввода логина не заполнено</string>
     <string name="error_field_required_pass">Поле ввода пароля не заполнено</string>
+    <string name="title_activity_feed">FeedActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
 </resources>
