@@ -7,6 +7,8 @@ import android.support.design.widget.BottomNavigationView
 import android.support.design.widget.CollapsingToolbarLayout
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.graphics.Palette
+import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.Toolbar
 import com.example.task_5.entities.FeedItem
 import com.example.task_5.entities.FeedType
@@ -35,6 +37,7 @@ class FeedActivity : AppCompatActivity() {
     var cTLayout: CollapsingToolbarLayout? = null
     lateinit var toolbar: Toolbar
 
+    private val feedAdapter = FeedAdapter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,6 +49,12 @@ class FeedActivity : AppCompatActivity() {
         cTLayout = findViewById(R.id.ct_layout)
         cTLayout!!.title = "Feed"
 
+        list.apply {
+            layoutManager = LinearLayoutManager(applicationContext)
+            adapter = feedAdapter as RecyclerView.Adapter<*>
+        }
+        feedAdapter.items = initList()
+
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
@@ -55,7 +64,7 @@ class FeedActivity : AppCompatActivity() {
             FeedItem(
                 id = index.toString(),
                 title = if (isNews) "Новость $index" else "Уведомление $index",
-                description = "Описание описанного в том описании, которое описал тот самый",
+                content = "Описание описанного в том описании, которое описал тот самый",
                 imageUrl = "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjl4deKiK_gAhUPpYsKHRqpABUQjRx6BAgBEAU&url=https%3A%2F%2Fmemepedia.ru%2Fstrana-imeni-rikardo-milosa-striptizer-iz-memov-zapolonil-google-maps%2F&psig=AOvVaw2hY7ElzF-z9COH2vA2XdlE&ust=1549815840803754",
                 type = if (isNews) FeedType.News else FeedType.Notification
             )
