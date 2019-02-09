@@ -33,5 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
+        <ImageView
+                android:id="@+id/news_like"
+                android:layout_width="40dp"
+                android:layout_height="30dp"
+                android:background="@drawable/like0ff"/>
+
     </LinearLayout>
 </androidx.cardview.widget.CardView>

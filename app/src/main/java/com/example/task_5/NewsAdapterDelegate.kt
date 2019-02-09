@@ -32,11 +32,22 @@ class NewsAdapterDelegate(val activity: Activity) : AdapterDelegate<List<FeedIte
         Picasso.get().load(news.imageUrl).into(vh.image)
         vh.title.text = news.title
         vh.content.text = news.content
+        setLikeImage(news.isLiked, vh)
+        vh.like.setOnClickListener {
+            news.isLiked = !news.isLiked
+            setLikeImage(news.isLiked, vh)
+        }
+    }
+
+    private fun setLikeImage(isLiked: Boolean, vh: NewsViewHolder) {
+        val likeImgId = if (isLiked) R.drawable.like0n else R.drawable.like0ff
+        vh.like.background = activity.resources.getDrawable(likeImgId, activity.theme)
     }
 
     inner class NewsViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val image: ImageView = view.news_image
         val title: TextView = view.news_title
         val content: TextView = view.news_content
+        val like: ImageView = view.news_like
     }
 }

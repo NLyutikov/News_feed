@@ -4,7 +4,6 @@ import android.app.Activity
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.task_5.entities.FeedItem
-import com.hannesdorfmann.adapterdelegates4.AdapterDelegate
 import com.hannesdorfmann.adapterdelegates4.AdapterDelegatesManager
 
 class FeedAdapter(activity: Activity) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
