@@ -6,9 +6,7 @@ import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.google.android.material.appbar.CollapsingToolbarLayout
 import androidx.appcompat.app.AppCompatActivity
-import androidx.palette.graphics.Palette
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import androidx.appcompat.widget.Toolbar
 import com.example.task_5.entities.FeedItem
 import com.example.task_5.entities.FeedType
@@ -22,14 +20,17 @@ class FeedActivity : AppCompatActivity() {
         when (item.itemId) {
             R.id.navigation_feed -> {
                 feedAdapter.items = initList()
+                cTLayout?.title = "Feed"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {
                 filter(FeedType.News)
+                cTLayout?.title = "News"
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
                 filter(FeedType.Notification)
+                cTLayout?.title = "Notifications"
                 return@OnNavigationItemSelectedListener true
             }
         }
@@ -54,6 +55,10 @@ class FeedActivity : AppCompatActivity() {
             adapter = feedAdapter
         }
         feedAdapter.items = initList()
+
+        toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
