@@ -3,13 +3,13 @@ package com.example.task_5
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.Bundle
-import android.support.design.widget.BottomNavigationView
-import android.support.design.widget.CollapsingToolbarLayout
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.graphics.Palette
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.support.v7.widget.Toolbar
+import com.google.android.material.bottomnavigation.BottomNavigationView
+import com.google.android.material.appbar.CollapsingToolbarLayout
+import androidx.appcompat.app.AppCompatActivity
+import androidx.palette.graphics.Palette
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import androidx.appcompat.widget.Toolbar
 import com.example.task_5.entities.FeedItem
 import com.example.task_5.entities.FeedType
 import kotlinx.android.synthetic.main.activity_feed.*
@@ -73,7 +73,7 @@ class FeedActivity : AppCompatActivity() {
 
     private fun dynamicToolBarColor() {
         val bitmap: Bitmap = BitmapFactory.decodeResource(resources, R.drawable.feed_logo)
-        Palette.from(bitmap).generate {
+        androidx.palette.graphics.Palette.from(bitmap).generate {
             cTLayout!!.setContentScrimColor(it!!.getMutedColor(R.attr.color))
             cTLayout!!.setStatusBarScrimColor(it.getMutedColor(R.attr.color))
         }
