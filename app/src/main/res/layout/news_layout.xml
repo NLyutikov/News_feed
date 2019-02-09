@@ -13,7 +13,6 @@
 
         <ImageView
                 android:id="@+id/news_image"
-                android:background="#919191"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
                 android:scaleType="centerCrop"/>
@@ -31,7 +30,6 @@
                 android:id="@+id/news_content"
                 android:text="Test"
                 android:padding="14dp"
-                android:background="#919191"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
