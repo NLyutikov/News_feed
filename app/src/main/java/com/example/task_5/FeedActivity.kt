@@ -16,28 +16,28 @@ import kotlinx.android.synthetic.main.activity_feed.*
 
 class FeedActivity : AppCompatActivity() {
 
+    private val feedAdapter = FeedAdapter(this)
+
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
             R.id.navigation_feed -> {
-                //message.setText(R.string.title_feed)
+                feedAdapter.items = initList()
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_news -> {
-                //message.setText(R.string.title_news)
+                filter(FeedType.News)
                 return@OnNavigationItemSelectedListener true
             }
             R.id.navigation_notifications -> {
-                //message.setText(R.string.title_notifications)
+                filter(FeedType.Notification)
                 return@OnNavigationItemSelectedListener true
             }
         }
         false
     }
-
     var cTLayout: CollapsingToolbarLayout? = null
-    lateinit var toolbar: Toolbar
 
-    private val feedAdapter = FeedAdapter(this)
+    lateinit var toolbar: Toolbar
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -56,6 +56,13 @@ class FeedActivity : AppCompatActivity() {
         feedAdapter.items = initList()
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
+    }
+
+    private fun filter(type: FeedType) {
+        feedAdapter.items = when (type) {
+            FeedType.News -> initList().filter { it.type == FeedType.News }
+            FeedType.Notification -> initList().filter { it.type == FeedType.Notification }
+        }
     }
 
     private fun initList(): List<FeedItem> {
