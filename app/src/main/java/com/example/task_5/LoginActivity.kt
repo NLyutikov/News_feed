@@ -7,6 +7,7 @@ import android.animation.AnimatorListenerAdapter
 import android.annotation.TargetApi
 import android.support.v7.app.AppCompatActivity
 import android.app.LoaderManager.LoaderCallbacks
+import android.content.Intent
 import android.content.Loader
 import android.database.Cursor
 import android.os.AsyncTask
@@ -184,7 +185,8 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
             showProgress(false)
 
             if (success!!) {
-                //finish()
+                val intent = Intent(applicationContext, FeedActivity::class.java)
+                startActivity(intent)
             } else {
                 Snackbar.make(password, R.string.error_incorrect_info, Snackbar.LENGTH_SHORT).show()
                 password.requestFocus()
@@ -198,10 +200,6 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     }
 
     companion object {
-        /**
-         * A dummy authentication store containing known user names and passwords.
-         * TODO: remove after connecting to a real authentication system.
-         */
         private val DUMMY_CREDENTIALS = arrayOf("test:test")
     }
 }
