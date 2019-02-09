@@ -51,7 +51,7 @@ class FeedActivity : AppCompatActivity() {
 
         list.apply {
             layoutManager = LinearLayoutManager(applicationContext)
-            adapter = feedAdapter as RecyclerView.Adapter<*>
+            adapter = feedAdapter
         }
         feedAdapter.items = initList()
 
@@ -65,7 +65,7 @@ class FeedActivity : AppCompatActivity() {
                 id = index.toString(),
                 title = if (isNews) "Новость $index" else "Уведомление $index",
                 content = "Описание описанного в том описании, которое описал тот самый",
-                imageUrl = "https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjl4deKiK_gAhUPpYsKHRqpABUQjRx6BAgBEAU&url=https%3A%2F%2Fmemepedia.ru%2Fstrana-imeni-rikardo-milosa-striptizer-iz-memov-zapolonil-google-maps%2F&psig=AOvVaw2hY7ElzF-z9COH2vA2XdlE&ust=1549815840803754",
+                imageUrl = "https://i.ytimg.com/vi/aVeCYjAiQHo/maxresdefault.jpg",
                 type = if (isNews) FeedType.News else FeedType.Notification
             )
         }
