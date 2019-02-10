@@ -19,7 +19,6 @@
 
         <TextView
                 android:id="@+id/news_title"
-                android:text="Title"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 android:padding="14dp"
@@ -28,15 +27,15 @@
 
         <TextView
                 android:id="@+id/news_content"
-                android:text="Test"
                 android:padding="14dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
         <ImageView
                 android:id="@+id/news_like"
-                android:layout_width="40dp"
-                android:layout_height="30dp"
+                android:layout_width="36dp"
+                android:layout_height="26dp"
+                android:layout_gravity="end"
                 android:background="@drawable/like0ff"/>
 
     </LinearLayout>

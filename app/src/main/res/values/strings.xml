@@ -15,4 +15,8 @@
     <string name="title_feed">Лента</string>
     <string name="title_news">Новости</string>
     <string name="title_notifications">Уведомления</string>
+    <!-- Img url path strings -->
+    <string name="feed_img">https://images.wallpaperscraft.com/image/ice_cube_light_glitter_15376_1920x1200.jpg</string>
+    <string name="news_img">http://bgfons.com/uploads/pattern/pattern_texture1157.jpg</string>
+    <string name="notification_img">https://www.zastavki.com/pictures/originals/2014/Nature___Seasons___Spring_Walk_under_the_spring_sun_069264_.jpg</string>
 </resources>

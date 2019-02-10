@@ -1,9 +1,10 @@
 @file:Suppress("DEPRECATION")
 
-package com.example.task_5
+package com.example.task_5_news_feed
 
 import android.animation.Animator
 import android.animation.AnimatorListenerAdapter
+import android.annotation.SuppressLint
 import android.annotation.TargetApi
 import androidx.appcompat.app.AppCompatActivity
 import android.app.LoaderManager.LoaderCallbacks
@@ -108,6 +109,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
     /**
      * Shows the progress UI and hides the login form.
      */
+    @SuppressLint("ObsoleteSdkInt")
     @TargetApi(Build.VERSION_CODES.HONEYCOMB_MR2)
     private fun showProgress(show: Boolean) {
         // On Honeycomb MR2 we have the ViewPropertyAnimator APIs, which allow
@@ -157,6 +159,7 @@ class LoginActivity : AppCompatActivity(), LoaderCallbacks<Cursor> {
      * Represents an asynchronous login/registration task used to authenticate
      * the user.
      */
+    @SuppressLint("StaticFieldLeak")
     inner class UserLoginTask internal constructor(private val mEmail: String, private val mPassword: String) :
         AsyncTask<Void, Void, Boolean>() {
 

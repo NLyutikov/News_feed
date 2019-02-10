@@ -1,4 +1,4 @@
-package com.example.task_5.entities
+package com.example.task_5_news_feed.entities
 
 data class FeedItem (
     val id: String,
